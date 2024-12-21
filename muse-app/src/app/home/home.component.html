@@ -1,0 +1,313 @@
+<header class="d-flex justify-content-between align-items-center">
+    <!-- Logo -->
+    <div class="logo text-uppercase d-flex align-items-center col-3" (click)="homePage()">
+        SPACE <img src="../../assets/icon/saturn.png" width="25px" style="margin-left: 5px;">
+    </div>
+
+    <!-- Search bar -->
+    <div class="form-group col-6">
+        <input type="text" id="search" name="search" placeholder="Search...">
+        <!-- <img src="../../assets/icon/search.png" width="25px"> -->
+    </div>
+
+    <!-- Icons -->
+    <div class="align-items-center col-3 d-flex justify-content-end" style="gap: 35px;">
+        <a class="icon" (click)="message()" target="_blank">
+            <img src="../../assets/icon/messenger.png" width="25px">
+        </a>
+        <a class="icon" (click)="profile()" target="_blank">
+            <img src="../../assets/icon/user.png" width="25px">
+        </a>
+    </div>
+</header>
+
+<div class="landing-body">
+    <main class="container-fluid">
+        <div class="row">
+            <!-- Left -->
+            <div class="col-lg-3 col-md-3 d-none d-md-block left">
+                <div class="video">
+                    <input type="text" id="searchYTB" class="search-bar" placeholder="Search YouTube..."
+                        (keyup.enter)="onSearch(searchInput.value)" #searchInput>
+
+                    <div class="search-results">
+                        <ul>
+                            <li *ngFor="let result of searchResults" (click)="playVideo(result.videoId)">
+                                <img [src]="result.thumbnail" alt="Thumbnail">
+                                <span class="t-grey-small">{{ result.title }}</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="video-player">
+                        <div id="videoPlayer"></div>
+                    </div>
+
+                    <div class="text-center d-flex justify-content-center">
+                        <button class="btn btn-post" (click)="openModal('video')">
+                            <i class="fa-solid fa-headphones"></i> Listen together
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center -->
+            <div class="col-lg-6 col-md-6 col-sm-12 center">
+                <!-- Action Post -->
+                <div class="action">
+                    <div class="row d-flex justify-content-center align-items-center"
+                        style="margin-left: 5px; margin-right: 5px;">
+                        <div class="col-1 justify-content-center" (click)="profile()">
+                            <img src="../../assets/icon/user.png" class="avatar" width="30 px">
+                        </div>
+                        <div class="col-11 d-flex justify-content-center">
+                            <input type="text" id="post-text" name="post-text" placeholder="Write something...">
+                        </div>
+                    </div>
+
+                    <hr class="d-flex justify-content-center">
+
+                    <div class="row d-flex justify-content-center align-items-center"
+                        style="margin-left: 15px; margin-right: 15px;">
+                        <div class="col-6 justify-content-center align-items-center t-grey action-btn" (click)="live()">
+                            <img src="../../assets/icon/stream.png" class="action-icon" width="30 px">
+                            Live
+                        </div>
+                        <div class="col-6 justify-content-center align-items-center t-grey action-btn"
+                            (click)="media()">
+                            <img src="../../assets/icon/image.png" class="action-icon" width="30 px">
+                            Picture/Video
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story -->
+                <div class="story">
+                    <div class="story-row">
+                        <div class="story-card" id="self-story">
+                            <img src="../../assets/img/witch.png">
+                            <button class="btn-add" (click)="openModal('story')"></button>
+                        </div>
+                        <div class="story-card" id="newStory">
+                            <!-- <img src="../../assets/img/witch.png" Alt="Story"> -->
+                            {{ newStory }}
+                        </div>
+                        <div class="story-card">
+                            C
+                        </div>
+                        <div class="story-card">
+                            D
+                        </div>
+                        <div class="story-card">
+                            E
+                        </div>
+                        <div class="story-card">
+                            F
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Posts 1 -->
+                <div class="posts">
+                    <div class="row d-flex justify-content-center align-items-center">
+                        <div class="col-1 justify-content-center" (click)="profile()">
+                            <img src="../../assets/icon/user.png" class="avatar" width="35px">
+                        </div>
+                        <div class="col-11 d-flex justify-content-between">
+                            <div class="d-flex justify-content-start" style="flex-direction: column; line-height: 0.5;">
+                                <p class="t-white">Phạm Huỳnh Anh Thư</p>
+                                <span class="t-grey-small">3 hours ago</span>
+                            </div>
+
+                            <div class="d-flex justify-content-end">
+                                <img src="../../assets/icon/more.png" class="close-post" width="15px" height="15px">
+                                <img src="../../assets/icon/close.png" class="close-post" width="15px" height="15px">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex justify-content-center align-items-start" style="margin-top: 15px;">
+                        <p class="p-white">"When Gregor Samsa woke one morning from uneasy dreams, he found himself
+                            transformed in his bed into a gigantic insect. He was lying on his hard, as it were
+                            armor-plated, back, and when he lifted his head a little he could see his dome-like brown
+                            belly, divided into stiff arched segments, on top of which the bed quilt could hardly keep
+                            in position and was about to slide off completely. His numerous legs, which were pitifully
+                            thin compared to the rest of his bulk, waved helplessly before his eyes."</p>
+                    </div>
+
+                    <div class="row d-flex justify-content-center align-items-center" style="margin-top: 15px;">
+                        <img src="../../assets/img/post.png" class="img-post">
+                    </div>
+
+                    <div class="posts">
+                        <div class="row d-flex justify-content-center align-items-center">
+                            <div class="col-6 justify-content-start">
+                                <p class="t-grey-small">23 reacts</p>
+                            </div>
+                            <div class="col-6 d-flex justify-content-end">
+                                <p class="t-grey-small">2 comments 3 shares</p>
+                            </div>
+                        </div>
+
+                        <hr class="d-flex justify-content-center">
+
+                        <div class="row d-flex justify-content-center align-items-center">
+                            <div class="col-4 justify-content-center align-items-center t-grey action-btn">
+                                <img src="../../assets/icon/heart.png" class="action-icon" width="30 px">
+                                Like
+                            </div>
+                            <div class="col-4 justify-content-center align-items-center t-grey action-btn">
+                                <img src="../../assets/icon/chat.png" class="action-icon" width="30 px">
+                                Comment
+                            </div>
+                            <div class="col-4 justify-content-center align-items-center t-grey action-btn">
+                                <img src="../../assets/icon/share.png" class="action-icon" width="30 px">
+                                Share
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Posts 2 -->
+                <div class="posts">
+                    <div class="row d-flex justify-content-center align-items-center">
+                        <div class="col-1 justify-content-center" (click)="profile()">
+                            <img src="../../assets/icon/user.png" class="avatar" width="35px">
+                        </div>
+                        <div class="col-11 d-flex justify-content-between">
+                            <div class="d-flex justify-content-start" style="flex-direction: column; line-height: 0.5;">
+                                <p class="t-white">Sanji</p>
+                                <span class="t-grey-small">5 hours ago</span>
+                            </div>
+
+                            <div class="d-flex justify-content-end">
+                                <img src="../../assets/icon/more.png" class="close-post" width="15px" height="15px">
+                                <img src="../../assets/icon/close.png" class="close-post" width="15px" height="15px">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex justify-content-center align-items-start" style="margin-top: 15px;">
+                        <p class="p-white">"When Gregor Samsa woke one morning from uneasy dreams, he found himself
+                            transformed in his bed into a gigantic insect. He was lying on his hard, as it were
+                            armor-plated, back, and when he lifted his head a little he could see his dome-like brown
+                            belly, divided into stiff arched segments, on top of which the bed quilt could hardly keep
+                            in position and was about to slide off completely. His numerous legs, which were pitifully
+                            thin compared to the rest of his bulk, waved helplessly before his eyes."</p>
+                    </div>
+
+                    <div class="posts">
+                        <div class="row d-flex justify-content-center align-items-center">
+                            <div class="col-6 justify-content-start">
+                                <p class="t-grey-small">23 reacts</p>
+                            </div>
+                            <div class="col-6 d-flex justify-content-end">
+                                <p class="t-grey-small">2 comments 3 shares</p>
+                            </div>
+                        </div>
+
+                        <hr class="d-flex justify-content-center">
+
+                        <div class="row d-flex justify-content-center align-items-center">
+                            <div class="col-4 justify-content-center align-items-center t-grey action-btn">
+                                <img src="../../assets/icon/heart.png" class="action-icon" width="30 px">
+                                Like
+                            </div>
+                            <div class="col-4 justify-content-center align-items-center t-grey action-btn">
+                                <img src="../../assets/icon/chat.png" class="action-icon" width="30 px">
+                                Comment
+                            </div>
+                            <div class="col-4 justify-content-center align-items-center t-grey action-btn">
+                                <img src="../../assets/icon/share.png" class="action-icon" width="30 px">
+                                Share
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Posts 3 -->
+                <div class="posts">
+                    <div class="row d-flex justify-content-center align-items-center">
+                        <div class="col-1 justify-content-center" (click)="profile()">
+                            <img src="../../assets/icon/user.png" class="avatar" width="35px">
+                        </div>
+                        <div class="col-11 d-flex justify-content-between">
+                            <div class="d-flex justify-content-start" style="flex-direction: column; line-height: 0.5;">
+                                <p class="t-white">Sylus</p>
+                                <span class="t-grey-small">10 hours ago</span>
+                            </div>
+
+                            <div class="d-flex justify-content-end">
+                                <img src="../../assets/icon/more.png" class="close-post" width="15px" height="15px">
+                                <img src="../../assets/icon/close.png" class="close-post" width="15px" height="15px">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex justify-content-center align-items-start" style="margin-top: 15px;">
+                        <p class="p-white">"Kitten."</p>
+                    </div>
+
+                    <div class="row d-flex justify-content-center align-items-center" style="margin-top: 15px;">
+                        <img src="../../assets/img/sylus.png" class="img-post">
+                    </div>
+
+                    <div class="posts">
+                        <div class="row d-flex justify-content-center align-items-center">
+                            <div class="col-6 justify-content-start">
+                                <p class="t-grey-small">100 reacts</p>
+                            </div>
+                            <div class="col-6 d-flex justify-content-end">
+                                <p class="t-grey-small">100 comments 10 shares</p>
+                            </div>
+                        </div>
+
+                        <hr class="d-flex justify-content-center">
+
+                        <div class="row d-flex justify-content-center align-items-center">
+                            <div class="col-4 justify-content-center align-items-center t-grey action-btn">
+                                <img src="../../assets/icon/heart.png" class="action-icon" width="30 px">
+                                Like
+                            </div>
+                            <div class="col-4 justify-content-center align-items-center t-grey action-btn">
+                                <img src="../../assets/icon/chat.png" class="action-icon" width="30 px">
+                                Comment
+                            </div>
+                            <div class="col-4 justify-content-center align-items-center t-grey action-btn">
+                                <img src="../../assets/icon/share.png" class="action-icon" width="30 px">
+                                Share
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right -->
+            <div class="col-lg-3 col-md-3 d-none d-md-block right">
+                <div class="friends-list">
+                    <button *ngFor="let friend of friends" (click)="openChat(friend)">
+                      {{ friend }}
+                    </button>
+                  </div>
+                  
+                  <div class="chats">
+                    <app-chat
+                      *ngFor="let chat of chatService.activeChats"
+                      [friendName]="chat.friendName"
+                      >
+                    </app-chat>
+                  </div>                  
+            </div>
+        </div>
+    </main>
+</div>
+
+
+
+<!-- Modal -->
+<app-story-modal modalId="story" #storyModal></app-story-modal>
+<app-listen-modal modalId="video"></app-listen-modal>
+
+<!-- Spinner -->
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>

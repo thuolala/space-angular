@@ -1,0 +1,445 @@
+.landing-body {
+    /* background-image: url("../../assets/img/landing.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    transition: 0.5s ease-in-out;
+    position: fixed;
+    background-color: #151515;
+}
+
+header {
+    z-index: 100;
+    /* Dark background for header */
+    color: white;
+    /* Text color */
+    padding: 10px 20px;
+    /* Add some spacing */
+    background-color: #1D1D1D;
+}
+
+.form-group {
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 20px;
+    background: #1d1d1d;
+    color: white;
+    font-size: 0.9rem;
+    position: relative;
+    background-image: url('../../assets/icon/search.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    padding-left: 40px;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #888;
+    background-image: url('../../assets/icon/search-white.png');
+}
+
+#searchYTB{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 20px;
+    background: #1d1d1d;
+    color: white;
+    font-size: 0.9rem;
+    position: relative;
+    background-image: url('../../assets/icon/youtube.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    padding-left: 40px;
+}
+
+#searchYTB:focus {
+    outline: none;
+    border-color: #888;
+    background-image: url('../../assets/icon/youtube-white.png');
+}
+
+#post-text {
+    background-image: url('../../assets/icon/pen.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    padding-left: 40px;
+    background-color: #323232;
+}
+
+#post-text:focus {
+    background-image: url('../../assets/icon/pen-white.png');
+}
+
+hr {
+    border-color: #888;
+    width: 80%;
+    margin: 20px auto 20px auto;
+}
+
+main {
+    flex: 1;
+    height: 100vh;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.icon {
+    cursor: pointer;
+}
+
+.t-space {
+    margin-top: 10%;
+    margin-left: auto;
+    letter-spacing: 10px;
+    text-align: center;
+}
+
+.t-grey {
+    color: #888;
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
+}
+
+.t-white {
+    color: white;
+    font-weight: bold;
+}
+
+.p-white {
+    color: white;
+}
+
+.t-grey-small {
+    color: #888;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.avatar {
+    cursor: pointer;
+}
+
+.action-btn {
+    border-radius: 10px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+}
+
+.action-btn:hover {
+    background-color: #323232;
+}
+
+.action-icon {
+    margin-right: 10px;
+}
+
+.close-post {
+    cursor: pointer;
+    margin-left: 25px;
+}
+
+.btn-row {}
+
+.btn-login {
+    text-align: center;
+    font-weight: bold;
+    color: #1D1D1D;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid white;
+    /* background-color: rgba(29, 29, 29, 0.768); */
+    background-color: rgba(255, 255, 255, 0.893);
+    backdrop-filter: blur(10px);
+    margin: 25px;
+}
+
+.btn-login:hover {
+    color: white;
+    border: 2px solid white;
+    background-color: rgba(29, 29, 29, 0.768);
+    backdrop-filter: blur(10px);
+    transition: 0.5s ease-in-out;
+}
+
+.btn-signup {
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    width: 170px;
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid white;
+    margin: 25px;
+}
+
+.btn-signup:hover .arrow {
+    margin-left: 15px;
+    transition: 0.5s ease-in-out;
+}
+
+.left {
+    z-index: 10;
+    height: 100vh;
+    scrollbar-color: #1D1D1D;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.center {
+    z-index: 10;
+    height: 100vh;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.right {
+    z-index: 10;
+    height: 100vh;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.action {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #1D1D1D;
+    border-radius: 10px;
+}
+
+.video{
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #1D1D1D;
+    border-radius: 10px;
+}
+
+.story {
+    margin-top: 20px;
+    padding: 10px 0;
+    height: 220px;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    display: flex;
+    align-items: center;
+}
+
+.posts {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #1D1D1D;
+    border-radius: 10px;
+}
+
+.img-post {
+    cursor: pointer;
+}
+
+.story-row {
+    display: flex;
+    /* Aligns items in a single row */
+    gap: 10px;
+    /* Adds spacing between story cards */
+}
+
+.story-card {
+    cursor: pointer;
+    width: 150px;
+    height: 200px;
+    background-color: #555;
+    border: 1px solid #555;
+    border-radius: 10px;
+    flex-shrink: 0;
+    /* Prevents cards from shrinking */
+    background-color: #323232;
+    overflow: hidden;
+    /* Ensures content stays within the card */
+    display: flex;
+    /* Aligns the image centrally if needed */
+}
+
+.story-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    /* Ensures the image fills the card without distortion */
+    border-radius: 10px;
+    /* Matches the card's rounded corners */
+    transition: 0.5s ease-in-out;
+}
+
+.story-card img:hover {
+    transform: scale(1.5);
+    transition: 0.5s ease-in-out;
+}
+
+#self-story {
+    cursor: pointer;
+    width: 150px;
+    height: 200px;
+    background-color: #555;
+    border: 1px solid #555;
+    border-radius: 10px;
+    flex-shrink: 0;
+    /* Prevents cards from shrinking */
+    background-color: #323232;
+    overflow: hidden;
+    /* Ensures content stays within the card */
+    display: flex;
+    /* Aligns the image centrally if needed */
+    position: relative;
+}
+
+#self-story img {
+    filter: brightness(50%);
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    /* Ensures the image fills the card without distortion */
+    border-radius: 10px;
+    /* Matches the card's rounded corners */
+}
+
+#self-story img:hover {
+    transform: scale(1);
+}
+
+.btn-add {
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    background-image: url("../../assets/icon/add-white.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.btn-add:hover {
+    background-image: url("../../assets/icon/add.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #1D1D1D;
+    text-align: center;
+    margin-top: 10%;
+}
+
+/* Youtube video */
+.search-bar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.search-results{
+    margin-bottom: 10px;
+    height: 180px;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.search-results ul {
+    list-style: none;
+    padding: 0;
+}
+
+.search-results li {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.search-results li img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    object-fit: contain;
+}
+
+.video-player {
+    width: 100%;
+    height: 100%;
+}
+
+.btn-post{
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: #1D1D1D;
+    border-radius: 10px;
+    border: 2px solid white;
+    background-color: rgba(255, 255, 255, 0.893);
+    backdrop-filter: blur(10px);
+    padding: 10px;
+    width: 100%;
+}
+
+.btn-post:hover {
+    color: white;
+    border: 2px solid white;
+    background-color: rgba(29, 29, 29, 0.768);
+    backdrop-filter: blur(10px);
+    transition: 0.5s ease-in-out;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    input[type="text"] {
+        width: 90%;
+    }
+}

@@ -1,0 +1,15 @@
+<div class="chat-box" *ngIf="isOpen">
+    <div class="chat-header">
+        <span>{{ friendName }}</span>
+        <button (click)="toggleMinimize()">_</button>
+        <button (click)="closeChat()">X</button>
+    </div>
+    <div class="chat-body" *ngIf="!isMinimized">
+        <div class="messages">
+            <div *ngFor="let message of messages">
+                <p [class]="message.type">{{ message.text }}</p>
+            </div>
+        </div>
+        <input type="text" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()" placeholder="Type a message..." />
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="landing-body">
+    <header class="d-flex justify-content-between align-items-center">
+        <!-- Logo -->
+        <div class="logo text-uppercase d-flex align-items-center" (click)="home()">
+            SPACE <img src="../../assets/icon/saturn.png" width="25px" style="margin-left: 5px;">
+        </div>
+
+        <!-- Icons -->
+        <div class="d-flex">
+            <a class="icon" href="https://www.facebook.com/thulovesanji" target="_blank">
+                <img src="../../assets/icon/facebook-app-symbol.png" width="25px"></a>
+            <a class="icon" href="mailto:phamthushame2002@gmail.com" target="_blank">
+                <img src="../../assets/icon/email.png" width="25px"></a>
+        </div>
+    </header>
+
+    <main class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-12 t-space">
+                <p class="t-grey">
+                    Welcome to
+                </p>
+                <p class="t-grey">
+                    your <span class="t-white typing">SPACE</span>
+                </p>
+
+                <p class="t-grey-small text-center">Social media platform</p>
+
+                <div class="btn-row text-center">
+                    <button class="btn btn-login" (click)="login()">Login</button>
+                    <button class="btn btn-signup" (click)="signup()">Join us <img src="../../assets/icon/right-arrow.png" width="20px" class="arrow"></button>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 img-space">
+                <img class="img-right" src="../../assets/icon/saturn-big.png" width="400px">
+            </div>
+        </div>
+    </main>
+
+    <!-- <footer>
+        <p class="t-grey-small" style="font-size: 12px; margin-top: 10px;">Developed by Anh Thư &#169;2024</p>
+    </footer> -->
+</div>

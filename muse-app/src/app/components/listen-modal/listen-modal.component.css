@@ -1,0 +1,117 @@
+.custom-modal-card {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #323232c4;
+    backdrop-filter: blur(10px);
+}
+
+.image-preview {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    font-size: 1rem;
+    color: #aaa;
+    text-align: center;
+    cursor: pointer;
+    z-index: 4;
+}
+
+.image-preview img {
+    z-index: 5;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.image-preview:hover {
+    filter: brightness(50%);
+}
+
+/* .t-remove{
+    display: none;
+}
+
+.image-preview:hover .t-remove{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 6;
+    position: fixed;
+    margin: auto;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+} */
+
+.btn-friends{
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    margin: 25px auto;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgba(29, 29, 29, 0.768);
+    backdrop-filter: blur(10px);
+    transition: 0.5s ease-in-out;
+}
+
+.btn-friends:hover {
+    color: white;
+    border: 2px solid white;
+    background-color: rgba(29, 29, 29, 0.901);
+    backdrop-filter: blur(10px);
+    transition: 0.5s ease-in-out;
+}
+
+.btn-post{
+    text-align: center;
+    font-weight: bold;
+    color: #1D1D1D;
+    border-radius: 10px;
+    border: 2px solid white;
+    background-color: rgba(255, 255, 255, 0.893);
+    backdrop-filter: blur(10px);
+    padding: 10px;
+    width: 300px;
+}
+
+.btn-post:hover {
+    color: white;
+    border: 2px solid white;
+    background-color: rgba(29, 29, 29, 0.768);
+    backdrop-filter: blur(10px);
+    transition: 0.5s ease-in-out;
+}
+
+.t-grey-small {
+    color: #aaa;
+    font-size: 15px;
+    text-align: center;
+}
+
+.t-white{
+    color: white;
+}
+
+.modal-header{
+    color: white;
+    font-weight: bold;
+    border-bottom: 1px solid #888;
+}
+

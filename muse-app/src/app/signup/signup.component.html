@@ -1,0 +1,114 @@
+<div class="landing-body">
+    <header class="d-flex justify-content-between align-items-center">
+        <!-- Logo -->
+        <div class="logo text-uppercase d-flex align-items-center" (click)="home()">
+            SPACE <img src="../../assets/icon/saturn.png" width="25px" style="margin-left: 5px;">
+        </div>
+
+        <!-- Icons -->
+        <div class="d-flex">
+            <a class="icon" href="https://www.facebook.com/thulovesanji" target="_blank">
+                <img src="../../assets/icon/facebook-app-symbol.png" width="25px"></a>
+            <a class="icon" href="mailto:phamthushame2002@gmail.com" target="_blank">
+                <img src="../../assets/icon/email.png" width="25px"></a>
+        </div>
+    </header>
+
+    <main class="container-fluid">
+        <div class="login-form-wrapper">
+            <form class="login-form">
+                <h2 class="form-title">Signup</h2>
+
+                <!-- First Name and Surname -->
+                <div class="form-group-row">
+                    <div class="form-group">
+                        <!-- <label for="first-name">First Name</label> -->
+                        <input type="text" id="first-name" name="first-name" placeholder="First Name" required>
+                    </div>
+                    <div class="form-group">
+                        <!-- <label for="surname">Surname</label> -->
+                        <input type="text" id="surname" name="surname" placeholder="Surname" required>
+                    </div>
+                </div>
+
+                <!-- Date of Birth -->
+                <label for="dob" style="text-align: start;">Date of Birth</label>
+                <div class="form-group-row">
+                    <div class="form-group">
+                        <!-- <label for="dob-day">Day</label> -->
+                        <input type="number" id="dob-day" name="dob-day" class="dob-input" placeholder="DD" min="1" max="31" required>
+                    </div>
+                    <div class="form-group">
+                        <!-- <label for="dob-month">Month</label> -->
+                        <input type="number" id="dob-month" name="dob-month" class="dob-input" placeholder="MM" min="1" max="12" required>
+                    </div>
+                    <div class="form-group">
+                        <!-- <label for="dob-year">Year</label> -->
+                        <input type="number" id="dob-year" name="dob-year" class="dob-input" placeholder="YYYY" min="1900" max="2100" required>
+                    </div>
+                </div>
+
+                <!-- Gender Dropdown -->
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" required class="gender">
+                        <option value="" disabled selected>Select your gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="nonbinary">Non-binary</option>
+                        <option value="prefer-not-to-say">Prefer not to say</option>
+                    </select>
+                </div>
+
+                <!-- Phone -->
+                <div class="form-group">
+                    <!-- <label for="phone">Phone</label> -->
+                    <input type="text" id="phone" name="phone" placeholder="Phone" required>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <!-- <label for="email">Email</label> -->
+                    <input type="text" id="email" name="email" placeholder="Email" required>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <!-- <label for="password">Password</label> -->
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+                    <!-- <label for="confirm-password">Confirm Password</label> -->
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password"
+                        required>
+                </div>
+
+                <!-- Agree to Terms -->
+                <div class="form-group remember-me">
+                    <input type="checkbox" id="agree" name="agree">
+                    <label for="agree" class="new-account-text">
+                        I agree to the <a href="terms-and-conditions.html" target="_blank">Terms and Conditions</a>
+                    </label>
+                </div>
+
+                <!-- Signup Button -->
+                <button type="submit" class="btn-login">Signup</button>
+
+                <!-- OR Section -->
+                <p class="or-text">OR</p>
+                <button type="button" class="btn-google">
+                    <img src="../../assets/icon/google.png" width="20px" style="margin-right: 10px;"> Continue with
+                    Google
+                </button>
+
+                <!-- Already Have an Account -->
+                <p class="new-account-text" style="margin-top: 20px;">
+                    Already have an account? <a href="/login">Login</a>
+                </p>
+            </form>
+
+        </div>
+    </main>
+</div>

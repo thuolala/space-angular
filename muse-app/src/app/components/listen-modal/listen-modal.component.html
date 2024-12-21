@@ -1,0 +1,41 @@
+<div class="modal fade" id="video" tabindex="-1" aria-labelledby="customModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content custom-modal-card">
+            <div class="modal-header text-center d-flex justify-content-center t-white">
+                Invite your friends
+            </div>
+
+            <div class="text-center d-flex justify-content-center row" style="margin-left: 25px; margin-right: 25px;">
+                <div class="col-3">
+                    <button class="btn btn-friends">
+                        <img src="../../../assets/icon/user.png" width="25px">
+                    </button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-friends">
+                        <img src="../../../assets/icon/user.png" width="25px">
+                    </button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-friends">
+                        <img src="../../../assets/icon/user.png" width="25px">
+                    </button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-friends">
+                        <img src="../../../assets/icon/more-white.png" width="25px">
+                    </button>
+                </div>
+            </div>
+
+            <div class="p-3 text-center d-flex justify-content-center">
+                <button for="fileUpload" class="btn btn-post" [disabled]="disabled" (click)="invite()">
+                    Invite
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Spinner -->
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
