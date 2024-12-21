@@ -18,7 +18,7 @@ export class ChatService {
   closeChat(friendName: string) {
     const chat = this.activeChats.find(chat => chat.friendName === friendName);
     if (chat) {
-      chat.isOpen = false; // Mark the chat as closed
+      chat.isOpen = false;
     }
   }
 }

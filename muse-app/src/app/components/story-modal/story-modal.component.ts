@@ -106,6 +106,7 @@ export class StoryModalComponent {
       /** spinner ends after 5 seconds */
       this.spinner.hide();
       this.closeModal();
+      this.remove();
     }, 1000);
   }
 

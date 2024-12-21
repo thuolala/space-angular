@@ -93,16 +93,16 @@
                             {{ newStory }}
                         </div>
                         <div class="story-card">
-                            C
+                            
                         </div>
                         <div class="story-card">
-                            D
+                            
                         </div>
                         <div class="story-card">
-                            E
+                            
                         </div>
                         <div class="story-card">
-                            F
+                            
                         </div>
                     </div>
                 </div>
@@ -286,18 +286,17 @@
             <!-- Right -->
             <div class="col-lg-3 col-md-3 d-none d-md-block right">
                 <div class="friends-list">
-                    <button *ngFor="let friend of friends" (click)="openChat(friend)">
-                      {{ friend }}
-                    </button>
-                  </div>
-                  
-                  <div class="chats">
-                    <app-chat
-                      *ngFor="let chat of chatService.activeChats"
-                      [friendName]="chat.friendName"
-                      >
+                    <div class="friend-row">
+                        <div *ngFor="let friend of friends" (click)="openChat(friend)" class="btn-friend">
+                            <i class="fa-regular fa-user" style="margin-right: 20px;"></i> {{ friend }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chats">
+                    <app-chat *ngFor="let chat of chatService.activeChats" [friendName]="chat.friendName">
                     </app-chat>
-                  </div>                  
+                </div>
             </div>
         </div>
     </main>

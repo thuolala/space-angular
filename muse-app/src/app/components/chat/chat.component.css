@@ -2,17 +2,32 @@
     position: fixed;
     bottom: 0;
     right: 20px;
-    width: 300px;
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    height: 400px;
+    background-color: rgba(47, 47, 47, 0.768);
+    backdrop-filter: blur(10px);
+    /* border: 1px solid #888; */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.479);
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
 }
 
+.chat-box.minimized {
+    height: 50px; 
+    overflow: hidden; 
+}
+
+.chat-box.minimized .chat-body {
+    display: none; 
+}
+
 .chat-header {
-    background: #0078d7;
+    background-color: rgba(29, 29, 29, 0.768);
+    backdrop-filter: blur(10px);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    /* border-bottom: 1px solid #888; */
     color: #fff;
     padding: 10px;
     display: flex;
@@ -21,40 +36,76 @@
     cursor: pointer;
 }
 
+.btn-chat-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.chat-name{
+    margin-left: 5px;
+    font-weight: bold;
+}
+
 .chat-body {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    height: 300px;
+    height: 100%;
     overflow: hidden;
 }
 
 .messages {
+    display: flex;
+    flex-direction: column;
     flex: 1;
     overflow-y: auto;
-    margin-bottom: 10px;
+    scrollbar-width: thin;
 }
 
 .messages p {
     padding: 5px 10px;
-    margin: 5px 0;
-    border-radius: 12px;
+    margin: 5px 5px;
     max-width: 80%;
+    width: fit-content;
+    word-wrap: break-word; 
+    white-space: pre-wrap; 
+    margin-bottom: 10px;
 }
 
 .messages p.user {
-    background: #0078d7;
+    background: #1d1d1d;
     color: #fff;
     align-self: flex-end;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    float: inline-end;
+    margin-right: 10px;
 }
 
 .messages p.friend {
     background: #f1f1f1;
     color: #333;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
-input {
+textarea {
     padding: 10px;
+    background-color: #ccc;
     border: 1px solid #ccc;
     border-radius: 4px;
+    width: 100%;
+    resize: none;
+    font-size: 14px;
+    line-height: 1.5;
+    overflow: hidden; /* Prevent initial scrollbar */
+    outline: none;
+}
+
+textarea:hover {
+    background-color: white;
 }

@@ -23,7 +23,7 @@ export class HomeComponent {
   apiKey: string = 'AIzaSyBlerfhExaaMmLKL2FA3h2Zl7h9aIseYn8';
   @ViewChild('storyModal') storyModal!: StoryModalComponent;
   newStory: string = '';
-  friends = ['Alice', 'Bob', 'Charlie'];
+  friends = ['Sanji', 'Sylus', 'Nanami Kento', 'Rafayel', 'Zayne', 'Xavier', 'Zhongli', 'Arataki Itto', 'Childe', 'Diluc', 'Roronoa Zoro', 'Jinyuan', 'Blade'];
 
   constructor(private titleService: Title, private router: Router, private modalService: ModalService,
     private spinner: NgxSpinnerService, private http: HttpClient, public chatService: ChatService) { }
@@ -54,6 +54,7 @@ export class HomeComponent {
   // Chat
   openChat(friend: string) {
     this.chatService.openChat(friend);
+    
   }
 
   // onDataChange(img: string) {

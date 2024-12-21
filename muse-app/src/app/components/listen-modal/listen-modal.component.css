@@ -57,7 +57,7 @@
     text-align: center;
     font-weight: bold;
     padding: 10px;
-    margin: 25px auto;
+    margin: 25px auto 5px auto;
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -77,6 +77,10 @@
     background-color: rgba(29, 29, 29, 0.901);
     backdrop-filter: blur(10px);
     transition: 0.5s ease-in-out;
+}
+
+.friend-name{
+    color: white;
 }
 
 .btn-post{

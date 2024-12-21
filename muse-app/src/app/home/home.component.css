@@ -53,7 +53,7 @@ input[type="text"]:focus {
     background-image: url('../../assets/icon/search-white.png');
 }
 
-#searchYTB{
+#searchYTB {
     width: 100%;
     padding: 10px;
     border: 1px solid #555;
@@ -208,10 +208,14 @@ main {
 .left {
     z-index: 10;
     height: 100vh;
-    scrollbar-color: #1D1D1D;
     overflow-y: auto;
-    -ms-overflow-style: none;
     scrollbar-width: none;
+    /* -ms-overflow-style: none;
+    scrollbar-width: none; */
+}
+
+.left:hover {
+    scrollbar-width: thin;
 }
 
 .center {
@@ -226,8 +230,13 @@ main {
     z-index: 10;
     height: 100vh;
     overflow-y: auto;
-    -ms-overflow-style: none;
     scrollbar-width: none;
+    /* -ms-overflow-style: none;
+    scrollbar-width: none; */
+}
+
+.right:hover {
+    scrollbar-width: thin;
 }
 
 .action {
@@ -237,11 +246,47 @@ main {
     border-radius: 10px;
 }
 
-.video{
+.video {
     margin-top: 20px;
     padding: 10px;
-    background-color: #1D1D1D;
+    /* background-color: #1D1D1D; */
     border-radius: 10px;
+}
+
+.friends-list {
+    margin-top: 20px;
+    padding: 10px;
+    /* background-color: #1D1D1D; */
+    border-radius: 10px;
+    height: 100vh;
+    /* overflow-y: auto; */
+}
+
+.friend-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    float: inline-start;
+}
+
+.chats {
+    z-index: 11;
+    position: fixed;
+}
+
+.btn-friend {
+    background-color: transparent;
+    color: #888;
+    cursor: pointer;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.btn-friend:hover {
+    background-color: #323232;
+    color: white;
 }
 
 .story {
@@ -299,9 +344,9 @@ main {
     transition: 0.5s ease-in-out;
 }
 
-.story-card img:hover {
-    transform: scale(1.5);
-    transition: 0.5s ease-in-out;
+.story-card:hover {
+    transition: 0.2s ease-in-out;
+    filter: brightness(70%);
 }
 
 #self-story {
@@ -376,7 +421,7 @@ footer {
     margin-bottom: 10px;
 }
 
-.search-results{
+.search-results {
     margin-bottom: 10px;
     height: 180px;
     overflow-y: auto;
@@ -407,7 +452,7 @@ footer {
     height: 100%;
 }
 
-.btn-post{
+.btn-post {
     margin-top: 10px;
     text-align: center;
     font-weight: bold;

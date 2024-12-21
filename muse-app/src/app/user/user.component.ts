@@ -2,7 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ModalService } from '../services/modal.service';
-import { StoryModalComponent } from '../components/story-modal/story-modal.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { NgxSpinnerService } from "ngx-spinner";
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -11,14 +10,13 @@ import { ListenModalComponent } from '../components/listen-modal/listen-modal.co
 
 @Component({
   selector: 'app-user',
-  imports: [StoryModalComponent, ListenModalComponent , NgxSpinnerModule, HttpClientModule, CommonModule],
+  imports: [ListenModalComponent , NgxSpinnerModule, HttpClientModule, CommonModule],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
 export class UserComponent {
   searchResults: any[] = [];
   apiKey: string = 'AIzaSyBlerfhExaaMmLKL2FA3h2Zl7h9aIseYn8';
-  @ViewChild('storyModal') storyModal!: StoryModalComponent;
   newStory: string = '';
 
   constructor(private titleService: Title, private router: Router, private modalService: ModalService, 
@@ -34,17 +32,6 @@ export class UserComponent {
       /** Spinner ends after 5 seconds */
       this.spinner.hide();
     }, 500); // Remember to change to suitable ms 
-  }
-
-  ngDoCheck() {
-    // New story 
-    this.newStory = this.storyModal?.img;
-    console.log(this.newStory);
-
-    const imageStory = document.getElementById('newStory');
-    if(imageStory){
-      imageStory.innerHTML = this.newStory;
-    }
   }
 
   // onDataChange(img: string) {
@@ -79,6 +66,11 @@ export class UserComponent {
   // User Profile
   profile() {
 
+  }
+
+  // Logout to landing page
+  logout(){
+    this.router.navigate(['']);
   }
 
   // Live
