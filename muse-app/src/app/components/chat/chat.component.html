@@ -23,15 +23,23 @@
         </div>
     </div>
     <div class="chat-body" *ngIf="!isMinimized">
-        <div class="messages">
+        <div class="messages" #messagesContainer>
+            <p class="text-center d-flex justify-content-center mx-auto text-white"><em><small>22/12/2024</small></em></p>
+            <p class="text-center d-flex justify-content-center mx-auto text-white"><strong>{{ currentTime }}</strong></p>
+
             <div *ngFor="let message of messages">
-                <p [class]="message.type">{{ message.text }}</p>
+                <div *ngIf="message.type === 'user'"
+                    class="d-flex flex-direction-column align-items-center justify-content-end">
+                    <p class="user">{{ message.text }}</p>
+                    <img src="../../../assets/icon/user.png" width="25px">
+                </div>
+                <div *ngIf="message.type === 'friend'"
+                    class="d-flex flex-direction-column align-items-center justify-content-start">
+                    <img src="../../../assets/icon/user.png" width="25px">
+                    <p class="friend">{{ message.text }}</p>
+                </div>
             </div>
         </div>
-        <textarea
-            [(ngModel)]="newMessage"
-            (keydown)="handleKeydown($event)"
-            placeholder="Type a message..."
-        ></textarea>
+        <textarea [(ngModel)]="newMessage" (keydown)="handleKeydown($event)" placeholder="Type a message..."></textarea>
     </div>
 </div>

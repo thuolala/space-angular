@@ -1,0 +1,3 @@
+cd muse-app
+npm start
+npm install 
