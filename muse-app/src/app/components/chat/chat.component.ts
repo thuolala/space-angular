@@ -1,50 +1,8 @@
-// import { Component, Input } from '@angular/core';
-// import { CommonModule } from '@angular/common';
-// import { FormsModule } from '@angular/forms';
-// import { ChatService } from '../../services/chat.service';
-
-// @Component({
-//   selector: 'app-chat',
-//   imports: [CommonModule, FormsModule],
-//   templateUrl: './chat.component.html',
-//   styleUrl: './chat.component.css'
-// })
-// export class ChatComponent {
-//   @Input() friendName = 'Friend';
-//   isOpen = true;
-//   isMinimized = false;
-//   messages: { text: string; type: 'user' | 'friend' }[] = [];
-//   newMessage = '';
-
-//   constructor(private chatService: ChatService) {
-
-//   }
-
-//   toggleMinimize() {
-//     this.isMinimized = !this.isMinimized;
-//   }
-
-//   closeChat() {
-//     this.chatService.closeChat(this.friendName);
-//     this.isOpen = false;
-//   }
-
-//   sendMessage() {
-//     if (this.newMessage.trim()) {
-//       this.messages.push({ text: this.newMessage, type: 'user' });
-//       this.newMessage = '';
-//       // Simulate a reply
-//       setTimeout(() => {
-//         this.messages.push({ text: 'Hello!', type: 'friend' });
-//       }, 1000);
-//     }
-//   }
-// }
-
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { ChatService } from '../../services/chat.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 @Component({
   selector: 'app-chat',
@@ -58,12 +16,24 @@ export class ChatComponent implements OnInit {
   messages: { text: string; type: 'user' | 'friend' }[] = [];
   newMessage = '';
   currentTime = '';
+  friendTime = '';
+
   @ViewChild('messagesContainer') private messagesContainer!: ElementRef;
-  
+
   constructor(private chatService: ChatService) { }
 
   ngOnInit() {
+    this.getCurrentTime();
+  }
+
+  getCurrentTime() {
     this.currentTime = new Date().toLocaleTimeString('en-US', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true
+    });
+
+    this.friendTime = new Date().toLocaleTimeString('en-US', {
       hour: '2-digit',
       minute: '2-digit',
       hour12: true
@@ -87,6 +57,7 @@ export class ChatComponent implements OnInit {
         // Prevent default behavior and send the message
         event.preventDefault();
         this.sendMessage();
+        this.newMessage = '';
       }
     }
   }
@@ -111,17 +82,46 @@ export class ChatComponent implements OnInit {
     this.chatService.closeChat(this.friendName);
   }
 
-  sendMessage() {
-    if (this.newMessage.trim()) {
-      this.messages.push({ text: this.newMessage, type: 'user' });
-      this.newMessage = '';
+  // Gemini Chatbot
+  async spaceAI(inputText: string) {
+    const genAI = new GoogleGenerativeAI("AIzaSyBZ5SejlO3HeEj_aL_t76st9X5qgWIbxNI");
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-      this.scrollToBottom();
-      setTimeout(() => {
-        this.messages.push({ text: 'I love you!', type: 'friend' });
-      }, 1000);
 
+    const result = await model.generateContent(inputText);
+    return result.response.text();
+  }
+
+  async sendMessage() {
+    // Chat with friends
+    if (this.friendName !== 'Space AI') {
+      if (this.newMessage.trim()) {
+        this.messages.push({ text: this.newMessage, type: 'user' });
+        this.newMessage = '';
+
+        this.getCurrentTime();
+        setTimeout(() => {
+          this.messages.push({ text: 'I love you!', type: 'friend' });
+        }, 1000);
+      }
+    
+    // Chat with Space AI
+    } else if (this.friendName === 'Space AI') {
+      if (this.newMessage.trim()) {
+        this.messages.push({ text: this.newMessage, type: 'user' });
+        const userMessage = this.newMessage;
+        this.newMessage = '';
+        this.getCurrentTime();
+
+        try {
+          const spaceAIText = await this.spaceAI(userMessage);
+          this.messages.push({ text: spaceAIText, type: 'friend' });
+        } catch (error) {
+          console.error('Error while generating AI response:', error);
+        }
+      }
     }
   }
+
 }
 

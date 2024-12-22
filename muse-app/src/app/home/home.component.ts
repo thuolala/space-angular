@@ -10,10 +10,12 @@ import { CommonModule } from '@angular/common';
 import { ListenModalComponent } from '../components/listen-modal/listen-modal.component';
 import { ChatService } from '../services/chat.service';
 import { ChatComponent } from '../components/chat/chat.component';
+import { GoogleGenerativeAI } from "@google/generative-ai";
+import { PostModalComponent } from '../components/post/post-modal.component';
 
 @Component({
   selector: 'app-home',
-  imports: [StoryModalComponent, ListenModalComponent, NgxSpinnerModule, HttpClientModule, CommonModule, ChatComponent],
+  imports: [StoryModalComponent, ListenModalComponent, NgxSpinnerModule, HttpClientModule, CommonModule, ChatComponent, PostModalComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
   standalone: true
@@ -22,8 +24,11 @@ export class HomeComponent {
   searchResults: any[] = [];
   apiKey: string = 'AIzaSyBlerfhExaaMmLKL2FA3h2Zl7h9aIseYn8';
   @ViewChild('storyModal') storyModal!: StoryModalComponent;
+
   newStory: string = '';
-  friends = ['Sanji', 'Sylus', 'Nanami Kento', 'Rafayel', 'Zayne', 'Xavier', 'Zhongli', 'Arataki Itto', 'Childe', 'Diluc', 'Roronoa Zoro', 'Jinyuan', 'Blade'];
+  friends = ['Space AI', 'Sanji', 'Sylus', 'Nanami Kento', 'Rafayel', 'Zayne', 'Xavier', 'Zhongli', 'Arataki Itto', 'Childe', 'Diluc', 'Roronoa Zoro', 'Jinyuan', 'Blade'];
+
+  filterText = '';
 
   constructor(private titleService: Title, private router: Router, private modalService: ModalService,
     private spinner: NgxSpinnerService, private http: HttpClient, public chatService: ChatService) { }
@@ -38,12 +43,14 @@ export class HomeComponent {
       /** Spinner ends after 5 seconds */
       this.spinner.hide();
     }, 500); // Remember to change to suitable ms 
+
+    // Test Chatbot
+    // this.spaceAI();
   }
 
   ngDoCheck() {
     // New story 
     this.newStory = this.storyModal?.img;
-    console.log(this.newStory);
 
     const imageStory = document.getElementById('newStory');
     if (imageStory) {
@@ -51,10 +58,21 @@ export class HomeComponent {
     }
   }
 
+  // Gemini Chatbot
+  async spaceAI() {
+    const genAI = new GoogleGenerativeAI("AIzaSyBZ5SejlO3HeEj_aL_t76st9X5qgWIbxNI");
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+    const prompt = "Explain how AI works";
+
+    const result = await model.generateContent(prompt);
+    console.log(result.response.text());
+  }
+
   // Chat
   openChat(friend: string) {
     this.chatService.openChat(friend);
-    
+
   }
 
   // onDataChange(img: string) {
@@ -91,6 +109,8 @@ export class HomeComponent {
     this.router.navigate(['/user']);
   }
 
+  // Post 
+
   // Live
   live() {
 
@@ -98,7 +118,23 @@ export class HomeComponent {
 
   // Media 
   media() {
+    const fileInput = document.getElementById('fileUploadPost') as HTMLInputElement;
+    fileInput?.click();
+  }
 
+  // Upload picture
+  onFileUploadPost(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        console.log(reader.result); // You can handle the file after it's read
+      };
+    } else {
+      console.error('No file selected');
+    }
   }
 
   // Create new story 

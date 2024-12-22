@@ -61,7 +61,7 @@
                             <img src="../../assets/icon/user.png" class="avatar" width="30 px">
                         </div>
                         <div class="col-11 d-flex justify-content-center">
-                            <input type="text" id="post-text" name="post-text" placeholder="Write something...">
+                            <input type="text" id="post-text" name="post-text" placeholder="Write something..." (click)="openModal('post')">
                         </div>
                     </div>
 
@@ -73,11 +73,12 @@
                             <img src="../../assets/icon/stream.png" class="action-icon" width="30 px">
                             Live
                         </div>
-                        <div class="col-6 justify-content-center align-items-center t-grey action-btn"
-                            (click)="media()">
+                        <div class="col-6 justify-content-center align-items-center t-grey action-btn" (click)="media()">
                             <img src="../../assets/icon/image.png" class="action-icon" width="30 px">
                             Picture/Video
-                        </div>
+                            <input type="file" id="fileUploadPost" accept="image/*" (change)="onFileUploadPost($event)" style="display: none;">
+                          </div>
+                          
                     </div>
                 </div>
 
@@ -93,18 +94,25 @@
                             {{ newStory }}
                         </div>
                         <div class="story-card">
-                            
+
                         </div>
                         <div class="story-card">
-                            
+
                         </div>
                         <div class="story-card">
-                            
+
                         </div>
                         <div class="story-card">
-                            
+
                         </div>
                     </div>
+                </div>
+
+                <!-- Filter -->
+                <div class="d-flex align-items-center justify-content-end" style="gap: 10px;">
+                    <i class="fa-solid fa-rotate"></i>
+                    <i class="fa-solid fa-heart"></i>
+                    <i class="fa-solid fa-filter"></i>
                 </div>
 
                 <!-- Posts 1 -->
@@ -288,7 +296,8 @@
                 <div class="friends-list">
                     <div class="friend-row">
                         <div *ngFor="let friend of friends" (click)="openChat(friend)" class="btn-friend">
-                            <i class="fa-regular fa-user" style="margin-right: 20px;"></i> {{ friend }}
+                            <i class="fa-regular fa-user" style="margin-right: 20px;"></i>
+                            {{ friend }}
                         </div>
                     </div>
                 </div>
@@ -305,6 +314,7 @@
 
 
 <!-- Modal -->
+<app-post-modal modalId="post"></app-post-modal>
 <app-story-modal modalId="story" #storyModal></app-story-modal>
 <app-listen-modal modalId="video"></app-listen-modal>
 

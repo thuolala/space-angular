@@ -1,0 +1,33 @@
+<div class="modal fade" id="post" tabindex="-1" aria-labelledby="customModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content custom-modal-card">
+            <div class="modal-header text-center d-flex justify-content-center t-white">
+                New post
+            </div>
+
+            <textarea placeholder="Write something..." [(ngModel)]="postText"></textarea>
+
+            <div class="image-preview justify-content-center row" id="imagePreviewPost" (click)="remove()">
+                <!-- <p class="t-remove">Remove</p> -->
+                {{ imagePostPreviewText }}
+            </div>
+
+            <div class="text-center d-flex justify-content-center">
+                <label for="filePostUpload" class="btn btn-upload">
+                    <img src="../../../assets/icon/upload.png" width="25px">
+                </label>
+                <input type="file" id="filePostUpload" accept="image/*" (change)="onFilePostUpload($event)"
+                    style="display: none;">
+            </div>
+
+            <div class="text-center d-flex justify-content-center">
+                <button for="fileUpload" class="btn btn-post" [disabled]="!postText.trim() && !imagePostPreviewText.trim()" (click)="post()">
+                    Post
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Spinner -->
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>

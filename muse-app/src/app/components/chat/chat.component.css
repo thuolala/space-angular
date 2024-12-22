@@ -93,6 +93,17 @@
     border-bottom-right-radius: 10px;
 }
 
+.message-text:hover::after {
+    opacity: 1; 
+}
+
+.online-status{
+    margin-right: 10px;
+    color: greenyellow;
+    /* color: grey; */
+    font-size: 8px;
+}
+
 textarea {
     padding: 10px;
     background-color: #ccc;
